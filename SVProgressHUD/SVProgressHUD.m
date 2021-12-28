@@ -77,14 +77,7 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
 }
 
 + (CGRect)delegateWindowFrame {
-    CGRect frame = [[[UIApplication sharedApplication] delegate] window].bounds;
-    if (@available(iOS 13.0, *)) {
-        id sceneDelegate = [[[UIApplication sharedApplication].connectedScenes allObjects].firstObject delegate];
-        if ([sceneDelegate respondsToSelector:@selector(window)]) {
-            frame = [sceneDelegate window].bounds;
-        }
-    }
-    return frame;
+    return [[UIScreen mainScreen] bounds];
 }
 
 
